@@ -1,0 +1,24 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+#body {
+  background: #000000;
+  background: linear-gradient(237deg, rgba(0, 0, 0, 1) 0%, rgba(36, 48, 59, 1) 100%);
+}
+
+:root {
+    --swiper-theme-color: #484c5a;
+
+    --swiper-navigation-size: 28px;
+}
+
+.swiper-pagination-progressbar {
+    background: rgba(255, 255, 255, 0.2);
+    height: 4px;
+    width: 100%;
+    border-radius: 99px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

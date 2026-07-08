@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- *tailwind-->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- *Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+  <!-- *Custom Styles -->
+  <link rel="stylesheet" href="src/style.css" />
+
+  <!-- *Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+
+  <title>Fourteam</title>
+</head>
+
+<body id="body" class="overflow-x-hidden">
+
+  <div id="main-content" class="w-full transition-transform duration-300 min-h-screen flex flex-col">
+    <!-- ?Header -->
+    <header
+      class="backdrop-blur-md bg-slate-900/50 text-zinc-400 p-4 sticky top-0 z-50 flex justify-between items-center">
+
+      <button id="menu-btn"
+        class="flex items-center justify-center p-2 rounded-full hover:bg-slate-900 transition-colors focus:outline-none">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <use href="/front/src/assets/sprite.svg#menu" />
+        </svg>
+      </button>
+
+      <a href="index.html">
+        <h1 class="text-2xl font-bold tracking-tight hover:text-zinc-200 transition-colors duration-100">Fourteam xd
+        </h1>
+      </a>
+
+      <button class="item-center justify-center border-2 p-2 border-green-800 hover:bg-slate-900  py-2 px-4 rounded">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <use href="/front/src/assets/sprite.svg#login" />
+        </svg>
+      </button>
+    </header>
+
+
+
+    <!--?Main-->
+    <main class="grow p-4">
+
+      <!-- <a class="bg-zinc-800 p-4 size-12 flex items-center justify-center rounded-full hover:bg-slate-200 
+      transition-colors duration-300" href="https://www.instagram.com/fourteam_/" target="_blank">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+          <use href="/front/src/assets/sprite.svg#instagram" />
+        </svg>
+      </a> -->
+
+      <div class="swiper mySwiper w-full max-w-5xl mx-auto py-8 px-4">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide h-72 md:h-96 lg:h-[500px]">
+            <img class="w-full h-full object-cover rounded-xl shadow-xl" src="src/assets/images/foto 1.webp" alt="">
+          </div>
+          <div class="swiper-slide h-72 md:h-96 lg:h-[500px]">
+            <img class="w-full h-full object-cover rounded-xl shadow-xl" src="src/assets/images/foto 2.webp" alt="">
+          </div>
+          <div class="swiper-slide h-72 md:h-96 lg:h-[500px]">
+            <img class="w-full h-full object-cover rounded-xl shadow-xl " src="src/assets/images/foto 3.webp" alt="">
+          </div>
+        </div>
+
+        <!-- ?Controles -->
+        <div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+
+    </main>
+
+    <!-- ?Footer -->
+    <footer class="backdrop-blur-md bg-slate-900/50 text-white p-4 text-center relative z-40 ">
+      <p class="text-lg font-semibold">Fourteam &copy; 2026</p>
+    </footer>
+
+  </div>
+
+  <!-- ?Menu desplegable -->
+  <aside id="sidebar"
+    class=" text-center backdrop-blur-md bg-slate-900/50 fixed top-0 left-0 w-64 h-full text-white p-4 transform -translate-x-full transition-transform duration-300 z-50 ">
+    <h2 class="text-2xl font-bold mb-8 text-zinc-400 tracking-tight">Menú</h2>
+    <ul class="space-y-4">
+      <li><a href="index.html" class="text-zinc-400 hover:text-zinc-300">Miembros</a></li>
+      <li><a href="about.html" class="text-zinc-400 hover:text-zinc-300">Galeria</a></li>
+      <li><a href="contact.html" class="text-zinc-400 hover:text-zinc-300">Info</a></li>
+    </ul>
+  </aside>
+
+  <!-- *Swiper Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <!-- *Custom Scripts -->
+  <script type="module" src="src/main.js"></script>
+</body>
+
+
+</html>
