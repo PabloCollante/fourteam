@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- *tailwind-->
+  <!-- ?tailwind-->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-  <!-- *Swiper -->
+  <!-- ?Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
-  <!-- *Custom Styles -->
+  <!-- ?Custom Styles -->
   <link rel="stylesheet" href="src/style.css" />
 
-  <!-- *Fonts -->
+  <!-- ?Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -43,7 +43,8 @@
         </h1>
       </a>
 
-      <button class="item-center justify-center border-2 p-2 border-green-800 hover:bg-slate-900  py-2 px-4 rounded">
+      <button id="btn-open-login"
+        class="item-center justify-center border-2 p-2 border-green-800 hover:bg-slate-900  py-2 px-4 rounded">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
           <use href="/front/src/assets/sprite.svg#login" />
         </svg>
@@ -103,6 +104,48 @@
       <li><a href="contact.html" class="text-zinc-400 hover:text-zinc-300">Info</a></li>
     </ul>
   </aside>
+
+  <!--? Modal Login -->
+  <div id="login-modal"
+    class="hidden fixed inset-0 z-[100] items-center justify-center backdrop-blur-sm bg-black/60 transition-opacity">
+
+    <div
+      class="bg-slate-800 p-8 rounded-2xl shadow-2xl w-full max-w-sam border border-slate-700 relative transform transition-all">
+
+      <!--?Boton para cerrar la ventana -->
+      <button id="btn-cerrar-login" class="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors" <svg
+        width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="rounded" stroke-linejoin="round" d="M6 18L18 6M6 6l22 12"></path>
+        </svg>
+      </button>
+
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-zinc-200 mb-1">Acceso</h2>
+        <p class="text-zinc-400 text-sm">Solo Para Miembros del Fourteamxd</p>
+      </div>
+
+      <!--? Formulario login -->
+      <form id="form-login" class="space-y-5">
+        <div>
+          <label for="nombre" class="block text-sm font-medium text-zinc-400 mb-1">Usuario</label>
+          <input type="text" id="nombre" placeholder="Ej: Gero" required
+            class="w-full bg-salte-900 border border-salte-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-green focus:ring-1 focus:ring-green-600 transition-colors">
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-zinc-400 mb-1">Contraseña</label>
+          <input type="password" id="password" placeholder="••••••" required 
+          class="w-full bg-salte-900 border border-salte-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-green focus:ring-1 focus:ring-green-600 transition-colors">
+        </div>
+
+        <p id="mensaje-error" class="text-red-400 text-sm text-center hidden"></p>
+
+        <button type="submit" class="w-full bg-green-700 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-green-900/50"></button>
+      </form>
+      
+    </div>
+  </div>
+
 
   <!-- *Swiper Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
