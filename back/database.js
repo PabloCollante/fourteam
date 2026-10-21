@@ -1,7 +1,8 @@
 const Database = require("better-sqlite3");
 const path = require('path')
+const { hashPassword } = require("./password");
 
-const dbPath = path.join(__dirname, 'fourteam.db')
+const dbPath = process.env.DB_PATH || path.join(__dirname, 'fourteam.db')
 const db = new Database(dbPath, {
     // verbose: console.log
 });
@@ -25,7 +26,7 @@ function InicializarDataBase() {
             image_url TEXT NOT NULL,
             descripcion TEXT NOT NULL,
             fecha_publicacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+            FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
         );
     `);
     //! Tabla partidos
@@ -39,7 +40,7 @@ function InicializarDataBase() {
             resultados TEXT CHECK(resultados IN ('Victoria', 'Empate', 'Derrota')),
             figura_id INTEGER,
             notas TEXT,
-            FOREIGN KEY (figura_id) REFERENCES usuario(id)
+            FOREIGN KEY (figura_id) REFERENCES usuarios(id)
         ); 
     `);
 
@@ -48,17 +49,25 @@ function InicializarDataBase() {
         console.log(`Tabla de usuario vacia, creando equipo`)
 
         const insertUser = db.prepare(`INSERT INTO usuarios (nombre, password) VALUES (?, ?)`);
-        const contraseniaTemporal = `123456`
+        const contraseniaTemporal = process.env.INITIAL_PASSWORD || `123456`
 
         const crearEquiupo = db.transaction((amigos) => {
             for (const amigo of amigos) {
-                insertUser.run(amigo, contraseniaTemporal)
+                insertUser.run(amigo, hashPassword(contraseniaTemporal))
             }
         });
 
         crearEquiupo(['Pablo', 'Leandro', 'Cazorla', 'Enzo', 'Lazaro', 'Mauro', 'Lazarte', 'Licha']);
         console.log(`Usuarios creados con exito`);
     }
+    // Migra contraseñas antiguas guardadas en texto plano sin cambiarlas.
+    const usuariosAntiguos = db.prepare("SELECT id, password FROM usuarios WHERE password NOT LIKE 'scrypt$%'").all();
+    const actualizarPassword = db.prepare("UPDATE usuarios SET password = ? WHERE id = ?");
+    db.transaction(() => {
+        for (const usuario of usuariosAntiguos) {
+            actualizarPassword.run(hashPassword(usuario.password), usuario.id);
+        }
+    })();
     console.log("Base de datos lsita")
 }
 //se ejecuta bien inica el programa

@@ -11,7 +11,7 @@ menuBtn.addEventListener('click', () => {
 const swiper = new Swiper('.mySwiper', {
   slidesPerView: "auto",
   spaceBetween: 20,
-  
+
   pagination: {
     el: '.swiper-pagination',
     type: 'progressbar',
@@ -24,22 +24,25 @@ const swiper = new Swiper('.mySwiper', {
 
 //? modal del login
 const btnOpenLogin = document.getElementById("btn-open-login");
-const btnCloseLogin = document.getElementById("btn-close-login");
+const btnCloseLogin = document.getElementById("btn-cerrar-login");
 const loginModal = document.getElementById("login-modal");
 
 //? abrir el modal
 btnOpenLogin.addEventListener("click", () => {
-  loginModal.classList.remove("hidden")
+  loginModal.classList.remove("hidden");
+  loginModal.classList.add("flex");
 });
 //? Cerrar modal
 btnCloseLogin.addEventListener("click", () => {
-  loginModal.classList.remove("hidden")
+  loginModal.classList.remove("flex");
+  loginModal.classList.add("hidden");
 });
 
 //? Cerrar si se toca fuera del modal
 loginModal.addEventListener("click", (e) => {
   if (e.target === loginModal) {
-    loginModal.classList.add("hidden")
+    loginModal.classList.remove("flex");
+    loginModal.classList.add("hidden");
   }
 });
 
@@ -56,7 +59,7 @@ formLogin.addEventListener("submit", async (e) => {
   try {
     const respuesta = await fetch("http://localhost:3000/api/login", {
       method: "POST",
-      headers: { "Content-Type" : "application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nombre, password })
     });
 
@@ -69,13 +72,17 @@ formLogin.addEventListener("submit", async (e) => {
 
       //? aqui podes cambiar el boton de login por la foto de perfil
       btnOpenLogin.innerHTML = `<span class="font-bold text-green-500">${data.usuario.nombre}></span>`
-  } else {
-    mensajeError.textContent = data.mensaje
-    mensajeError.classList.remove = ("hidden")
-  }
-  }catch(error) {
+    } else {
+      mensajeError.textContent = data.mensaje
+      mensajeError.classList.remove("hidden");
+    }
+  } catch (error) {
     mensajeError.textContent = "El servidor está apagado (Error de conexión).";
     mensajeError.classList.remove("hidden");
   }
 });
+
+//? Circulo de foto de perfil 
+
+
 

@@ -113,8 +113,8 @@
       class="bg-slate-800 p-8 rounded-2xl shadow-2xl w-full max-w-sam border border-slate-700 relative transform transition-all">
 
       <!--?Boton para cerrar la ventana -->
-      <button id="btn-cerrar-login" class="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors" <svg
-        width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <button id="btn-cerrar-login" class="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors">
+      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="rounded" stroke-linejoin="round" d="M6 18L18 6M6 6l22 12"></path>
         </svg>
       </button>
@@ -134,16 +134,39 @@
 
         <div>
           <label for="password" class="block text-sm font-medium text-zinc-400 mb-1">Contraseña</label>
-          <input type="password" id="password" placeholder="••••••" required 
-          class="w-full bg-salte-900 border border-salte-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-green focus:ring-1 focus:ring-green-600 transition-colors">
+          <input type="password" id="password" placeholder="••••••" required
+            class="w-full bg-salte-900 border border-salte-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-green focus:ring-1 focus:ring-green-600 transition-colors">
         </div>
 
         <p id="mensaje-error" class="text-red-400 text-sm text-center hidden"></p>
 
-        <button type="submit" class="w-full bg-green-700 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-green-900/50"></button>
-      </form>
-      
+        <div class="flex justify-center w-full">
+          <button type="submit" class="w-1/6 h-1/6 p-0 bg-green-700 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-green-900/50">Ingresar</button>
+        </form>
+        </div>
     </div>
+  </div>
+
+  <!--? contenedor de autenticacion -->
+  <div id="auth-container" class="relative">
+    <button id="btn-open-login" class="flex items-center justify-center border-2 p2 border-green-800 hover:bg-slate-900 py-2 px-4 rounde transition-colors">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <use href="/front/src/assets/sprite.svg#login">
+      </svg>
+    </button>
+
+    <div id="user-menu-container" class="hidden">
+
+      <button id="btn-user-profile" class="flex items-center gap-3 hover:bg-slate-800 p-2 rounded-lg transition-colors focus:outline-none">
+        <span id="user-name-display" class="font-bold text-green-500 text-lg hidden sm:block">Nombre</span>
+
+        <!--? Circulo de foto de perfil  -->
+        <div id="user-profile-photo" class="">
+          <svg></svg>
+        </div>
+      </button>
+    </div>
+
   </div>
 
 
