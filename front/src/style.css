@@ -5,22 +5,32 @@ body {
 }
 
 #body {
-  background: #000000;
-  background: linear-gradient(237deg, rgba(0, 0, 0, 1) 0%, rgba(36, 48, 59, 1) 100%);
+  background: #f5f5f7;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 64%, #f0f0f2 100%);
+  color: #1d1d1f;
 }
 
 :root {
-    --swiper-theme-color: #484c5a;
-
-    --swiper-navigation-size: 28px;
+  --swiper-theme-color: #1d1d1f;
+  --swiper-navigation-size: 18px;
 }
 
-.swiper-pagination-progressbar {
-    background: rgba(255, 255, 255, 0.2);
-    height: 4px;
-    width: 100%;
-    border-radius: 99px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.mySwiper .swiper-pagination-progressbar {
+  height: 3px;
+  border-radius: 99px;
+  background: rgba(29, 29, 31, 0.1);
+}
+
+.mySwiper .swiper-pagination-progressbar-fill {
+  border-radius: 99px;
 }
