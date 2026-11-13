@@ -1,4 +1,17 @@
 @import "tailwindcss";
+@theme inline {
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-panel: var(--panel);
+  --color-input: var(--input);
+  --color-action: var(--action);
+  --color-on-action: var(--on-action);
+  --color-line: var(--line);
+  --color-danger: var(--danger);
+}
+:root { --ink: #1d1d1f; --muted: #626269; --panel: #fff; --input: #f1f1f4; --action: #18181b; --on-action: #fff; --line: #d4d4d8; --danger: #b91c1c; color-scheme: light; }
+:root[data-theme="dark"] { --ink: #f5f5f7; --muted: #b6b6c0; --panel: #24252b; --input: #303139; --action: #f5f5f7; --on-action: #18181b; --line: #454650; --danger: #fca5a5; color-scheme: dark; }
+section[id] { scroll-margin-top: 80px; }
 
 body {
   font-family: 'Inter', sans-serif;
@@ -7,8 +20,9 @@ body {
 #body {
   background: #f5f5f7;
   background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 64%, #f0f0f2 100%);
-  color: #1d1d1f;
+  color: var(--ink);
 }
+[data-theme="dark"] #body { background: linear-gradient(180deg, #14151a, #1b1c23 65%, #16171c); }
 
 :root {
   --swiper-theme-color: #1d1d1f;
@@ -34,3 +48,68 @@ body {
 .mySwiper .swiper-pagination-progressbar-fill {
   border-radius: 99px;
 }
+
+.galeria .swiper-button-next, .galeria .swiper-button-prev { width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.9); color: #1d1d1f; }
+.galeria .swiper-button-next svg, .galeria .swiper-button-prev svg { width: 14px; height: 14px; }
+:focus-visible { outline: 2px solid #555; outline-offset: 3px; }
+::selection { background: #d4d4d8; color: #18181b; }
+
+.access-screen {
+  display: flex;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 21% 20%, rgba(191, 211, 229, .72), transparent 43%),
+    radial-gradient(ellipse at 80% 78%, rgba(218, 205, 218, .66), transparent 40%),
+    linear-gradient(135deg, #f7f9fb, #ebeef3 58%, #f7f5f6);
+}
+
+.access-card {
+  background: rgba(255, 255, 255, .62);
+  box-shadow: 0 24px 64px rgba(50, 58, 72, .12), inset 0 1px 0 rgba(255, 255, 255, .9);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+}
+
+.access-mark {
+  color: #3f4651;
+  background: rgba(255, 255, 255, .68);
+  box-shadow: 0 3px 12px rgba(50, 58, 72, .08);
+}
+
+.access-input {
+  width: 100%;
+  border: 1px solid rgba(100, 108, 121, .2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .58);
+  padding: 12px 16px;
+  color: #18181b;
+  transition: border-color .2s, background-color .2s;
+}
+
+.access-input::placeholder { color: var(--muted); }
+.access-input:focus { background: rgba(255, 255, 255, .9); border-color: #71717a; outline: 2px solid rgba(82, 82, 91, .35); outline-offset: 2px; }
+
+.glass-surface {
+  background: linear-gradient(135deg, rgba(255, 255, 255, .76), rgba(239, 243, 248, .5));
+  box-shadow: 0 12px 36px rgba(45, 53, 68, .07), inset 0 1px 0 rgba(255, 255, 255, .95);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+}
+
+.glass-menu {
+  background: rgba(247, 249, 252, .74);
+  box-shadow: 0 16px 48px rgba(30, 38, 52, .15), inset 0 1px 0 rgba(255, 255, 255, .95);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+}
+
+[data-theme="dark"] .glass-surface { background: linear-gradient(135deg, rgba(49, 51, 62, .76), rgba(32, 34, 42, .6)); box-shadow: 0 12px 36px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255, 255, 255, .08); }
+[data-theme="dark"] .glass-menu { background: rgba(36, 38, 48, .8); box-shadow: 0 16px 48px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .12); }
+[data-theme="dark"] .access-screen { background: radial-gradient(ellipse at 21% 20%, rgba(62, 80, 110, .5), transparent 43%), radial-gradient(ellipse at 80% 78%, rgba(90, 64, 94, .35), transparent 40%), #14151b; }
+[data-theme="dark"] .access-card { background: rgba(38, 40, 51, .65); box-shadow: 0 24px 64px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .15); }
+[data-theme="dark"] .access-mark { color: var(--ink); background: rgba(255, 255, 255, .08); }
+[data-theme="dark"] .access-input { background: rgba(20, 21, 27, .5); color: var(--ink); border-color: rgba(220, 225, 240, .18); }
+[data-theme="dark"] .access-input:focus { background: rgba(20, 21, 27, .8); border-color: #a1a1aa; outline-color: rgba(220, 225, 240, .35); }
+[data-theme="dark"] .galeria .swiper-button-next, [data-theme="dark"] .galeria .swiper-button-prev { background: rgba(30, 31, 38, .88); color: #f5f5f7; }
+[data-theme="dark"] :focus-visible { outline-color: #b6b6c0; }
+[data-theme="dark"] ::selection { background: #535569; color: #fff; }
